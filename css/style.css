@@ -1,0 +1,99 @@
+* {
+    
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(0, 0, 0);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.slider {
+    position: relative;
+    height: 500px;
+    width: 500px;
+    margin:10px;
+    overflow: hidden;
+}
+
+.slider-img {
+    z-index: 1;
+    position: absolute;
+    width: 100%;
+    clip-path: circle(0% at 0 50%);
+}
+
+
+.slider-img.on{
+    clip-path: circle(150% at 0% 50%);
+    transition: 2s;
+    transition-property: clip-path;
+}
+
+.slider-img img {
+    z-index: 1;
+    width: 100%;
+}
+
+.slider-text{
+    position: absolute;
+    backdrop-filter: blur(15px);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    color:rgb(216, 212, 212);
+    top:0;
+    padding: 10px 15px;
+}
+.slider-text h1{
+    text-transform: uppercase;
+}
+
+.nav-button {
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom: 20px; 
+    left: 50%;
+    transform: translateX(-50%); 
+}
+.dot{
+    height: 13px;
+    width:13px ;
+    border-radius: 100%;
+    background-color: rgb(255, 255, 255);
+    margin: 6px;
+    cursor: pointer;
+}
+.dot.on{
+    background-color: grey;
+}
+
+.sides-button {
+    position: absolute;
+    top: 50%; 
+    transform: translateY(-50%); 
+    width: 100%; 
+    display: flex;
+    justify-content: space-between; 
+    z-index: 3;
+}
+.sides-button button {
+    background: none; 
+    border: none; 
+    color: white; 
+    font-size: 2.3rem; 
+    cursor: pointer; 
+    outline: none; 
+    transition: color 0.3s; 
+}
+.sides-button button:hover {
+    color: grey; 
+}
