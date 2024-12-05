@@ -22,15 +22,31 @@ dots.forEach((dot, i) => {
     })
 });
 
-document.getElementById('next-button').addEventListener("click", () => {
+document.getElementById('next-button').addEventListener("click", (event) => {
+    event.stopPropagation();
     stopAutoplay();
     current = (current + 1) % slides.length;
     navigation(current);
-})
+});
 
-document.getElementById('prev-button').addEventListener('click', () => {
+document.getElementById('next-button').addEventListener("touchstart", (event) => {
+    event.stopPropagation();
     stopAutoplay();
-    current = (current - 1 + slides.length) % slides.length; 
+    current = (current + 1) % slides.length;
+    navigation(current);
+});
+
+document.getElementById('prev-button').addEventListener('click', (event) => {
+    event.stopPropagation();
+    stopAutoplay();
+    current = (current - 1 + slides.length) % slides.length;
+    navigation(current);
+});
+
+document.getElementById('prev-button').addEventListener('touchstart', (event) => {
+    event.stopPropagation();
+    stopAutoplay();
+    current = (current - 1 + slides.length) % slides.length;
     navigation(current);
 });
 
